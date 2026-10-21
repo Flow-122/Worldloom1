@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Worldloom</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="worldloom.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand-wrap">
+          <div class="brand-mark">W</div>
+          <div class="brand-name">Worldloom</div>
+        </div>
+
+        <nav class="nav" aria-label="Main navigation">
+          <a href="#discover" data-show-discover>Discover</a>
+          <a href="#explore" class="active" data-show-explore>Explore</a>
+          <a href="#collections" data-show-collections>Collections</a>
+          <a href="#map" data-open-map-link>Map</a>
+          <a href="#saved" data-show-saved>Saved</a>
+          <a href="#portfolio" data-show-portfolio>Portfolio</a>
+        </nav>
+
+        <div class="header-actions">
+          <button class="btn" data-show-explore>Explore</button>
+          <button class="btn primary" data-open-map>Open</button>
+        </div>
+      </header>
+
+      <div class="page-layout">
+        <aside class="sidebar">
+          <div class="stack">
+            <div>
+              <p class="section-title">Topics</p>
+              <div class="chip-row">
+                <button class="chip" type="button" data-topic="Design" aria-pressed="false">Design</button>
+                <button class="chip" type="button" data-topic="Places" aria-pressed="false">Places</button>
+                <button class="chip" type="button" data-topic="Ideas" aria-pressed="false">Ideas</button>
+                <button class="chip" type="button" data-topic="Culture" aria-pressed="false">Culture</button>
+                <button class="chip" type="button" data-topic="Travel" aria-pressed="false">Travel</button>
+                <button class="chip" type="button" data-topic="Art" aria-pressed="false">Art</button>
+              </div>
+            </div>
+
+            <div>
+              <p class="section-title">Popular<span class="metric-caption">Share of collection opens on this device</span></p>
+              <div class="list">
+                <button class="list-item" type="button" data-popular="modern-interiors" aria-haspopup="dialog" aria-label="Browse options for Modern spaces">
+                  <div class="left">
+                    <div class="mini-icon"></div>
+                    <div>
+                      <div class="strong-label">Modern spaces</div>
+                            <div class="muted-label" data-feature-opens="modern-interiors">0 opens</div>
+                    </div>
+                  </div>
+                        <div class="score" data-feature-share="modern-interiors">0%</div>
+                </button>
+
+                <button class="list-item" type="button" data-popular="creative-cities" aria-haspopup="dialog" aria-label="Browse options for City guides">
+                  <div class="left">
+                    <div class="mini-icon"></div>
+                    <div>
+                      <div class="strong-label">City guides</div>
+                      <div class="muted-label" data-feature-opens="creative-cities">0 opens</div>
+                    </div>
+                  </div>
+                  <div class="score" data-feature-share="creative-cities">0%</div>
+                </button>
+
+                <button class="list-item" type="button" data-popular="new-perspectives" aria-haspopup="dialog" aria-label="Browse options for Creative hubs">
+                  <div class="left">
+                    <div class="mini-icon"></div>
+                    <div>
+                      <div class="strong-label">Creative hubs</div>
+                      <div class="muted-label" data-feature-opens="new-perspectives">0 opens</div>
+                    </div>
+                  </div>
+                  <div class="score" data-feature-share="new-perspectives">0%</div>
+                </button>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <main class="main-panel">
+          <section class="page explore-page active" id="explore-page">
+            <div class="explore-hero">
+              <div class="explore-hero-copy">
+                <div class="eyebrow">A world of ideas, one search away</div>
+                <h1>Explore the world.</h1>
+                <p>Find a city, follow an art trail, or let a new place surprise you. Start anywhere and see where curiosity takes you.</p>
+                <form class="explore-search-form" id="exploreSearchForm">
+                  <input id="exploreSearch" type="search" placeholder="Where would you like to wander?" aria-label="Search places, ideas, and collections" />
+                  <button class="btn primary" type="submit">Explore</button>
+                </form>
+                <div class="explore-prompt-row" aria-label="Try a search">
+                  <span>Try a little inspiration</span>
+                  <button type="button" data-explore-query="Tokyo">Tokyo</button>
+                  <button type="button" data-explore-query="Art">Art trails</button>
+                  <button type="button" data-explore-query="Coastal routes">Coastlines</button>
+                </div>
+                <div class="explore-search-actions" id="exploreSearchActions" hidden>
+                  <a class="btn" id="exploreGoogleLink" href="#" target="_blank" rel="noopener noreferrer">Search Google</a>
+                  <a class="btn" id="exploreYouTubeLink" href="#" target="_blank" rel="noopener noreferrer">Search YouTube</a>
+                </div>
+                <div class="explore-topic-list" aria-label="Explore topics">
+                  <button class="chip" type="button" data-topic="Design" aria-pressed="false">Design</button>
+                  <button class="chip" type="button" data-topic="Places" aria-pressed="false">Places</button>
+                  <button class="chip" type="button" data-topic="Ideas" aria-pressed="false">Ideas</button>
+                  <button class="chip" type="button" data-topic="Culture" aria-pressed="false">Culture</button>
+                  <button class="chip" type="button" data-topic="Travel" aria-pressed="false">Travel</button>
+                  <button class="chip" type="button" data-topic="Art" aria-pressed="false">Art</button>
+                </div>
+              </div>
+              <div class="explore-hero-visual" aria-label="Featured places around the world">
+                <figure class="explore-photo-main">
+                  <img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&amp;fit=crop&amp;w=1100&amp;q=88" alt="Tokyo skyline glowing at blue hour" />
+                  <figcaption><span>City guide</span><strong>Tokyo, Japan</strong></figcaption>
+                </figure>
+                <figure class="explore-photo-inset">
+                  <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&amp;fit=crop&amp;w=500&amp;q=85" alt="Colorful painting in a gallery" />
+                </figure>
+                <span class="explore-photo-note">A new view is closer than you think</span>
+              </div>
+            </div>
+
+            <div class="explore-shortcut-row">
+              <p>Pick a direction, or explore the whole globe.</p>
+              <div class="hero-actions">
+                <button class="btn" data-open-collections>All collections</button>
+                <button class="btn primary" data-open-map>Open world map</button>
+              </div>
+            </div>
+
+            <div>
+              <p class="section-title">A few places to start</p>
+              <div class="explore-highlights">
+                <article class="explore-highlight" data-explore-feature="cafe-culture"></article>
+                <article class="explore-highlight" data-explore-feature="creative-cities"></article>
+                <article class="explore-highlight" data-explore-feature="slow-escapes"></article>
+                <article class="explore-highlight" data-explore-feature="art-around-us"></article>
+              </div>
+            </div>
+          </section>
+
+          <section class="page" id="discover-page">
+            <div class="hero-card">
+              <div>
+                <div class="eyebrow">Daily inspiration</div>
+                <h1>Explore the world in one view.</h1>
+                <p class="lead">Search, browse, and discover beautiful spaces, creative communities, and globally inspiring ideas across every region.</p>
+
+                <div class="cta-row">
+                  <button class="btn primary" data-open-map>Open map</button>
+                  <button class="btn" data-open-collections>Browse collection</button>
+                </div>
+
+                <div class="meta-strip">
+                  <button class="meta-pill" type="button" data-open-atlas-status aria-label="View details about the idea count"><span class="meta-dot"></span> 3.2k live ideas</button>
+                  <button class="meta-pill" type="button" data-open-atlas-status aria-label="View details about the last update">Updated 12 min ago</button>
+                </div>
+              </div>
+
+              <div class="globe-visual" id="globeDragArea" aria-label="Interactive world map">
+                <div class="world-grid"></div>
+                <canvas class="earth-canvas" id="heroEarth" aria-hidden="true"></canvas>
+                <div class="map-scene-caption">
+                  <span>Worldloom atlas</span>
+                  <strong>Find your next place.</strong>
+                </div>
+                <div class="map-window">
+                  <div class="loc-stack">
+                    <strong>Global discovery</strong>
+                    <span>24 regions</span>
+                  </div>
+                  <button class="btn primary" data-open-map>Open world map</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel-row">
+              <article class="card" data-feature="modern-interiors">
+                <button class="card-visual" type="button" aria-label="Open Modern interiors slideshow">
+                  <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&amp;fit=crop&amp;w=800&amp;q=85" alt="Sunlit modern living room with warm natural textures" loading="lazy" />
+                </button>
+                <h3>Modern interiors</h3>
+                <p>Warm materials, layered daylight, and elevated spatial storytelling.</p>
+                <div class="card-meta">
+                  <span>12 min read</span>
+                  <a class="small-pill youtube-link" href="https://www.youtube.com/results?search_query=modern+interior+design+room+tour" target="_blank" rel="noopener noreferrer" aria-label="Watch modern interiors on YouTube"><span class="dot"></span> Trending</a>
+                </div>
+              </article>
+
+              <article class="card" data-feature="creative-cities">
+                <button class="card-visual" type="button" aria-label="Open Creative cities slideshow">
+                  <img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&amp;fit=crop&amp;w=800&amp;q=85" alt="City skyline glowing at dusk" loading="lazy" />
+                </button>
+                <h3>Creative cities</h3>
+                <p>Explore locations where design, culture, and ideas shape the neighbourhood.</p>
+                <div class="card-meta">
+                  <span>8 min read</span>
+                  <a class="small-pill youtube-link" href="https://www.youtube.com/results?search_query=Tokyo+creative+city+travel+guide" target="_blank" rel="noopener noreferrer" aria-label="Watch creative city guides on YouTube"><span class="dot"></span> Featured</a>
+                </div>
+              </article>
+
+              <article class="card" data-feature="new-perspectives">
+                <button class="card-visual" type="button" aria-label="Open New perspectives slideshow">
+                  <img src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&amp;fit=crop&amp;w=800&amp;q=85" alt="Sculptural contemporary architecture against the sky" loading="lazy" />
+                </button>
+                <h3>New perspectives</h3>
+                <p>Fresh visual systems and discovery threads from around the world.</p>
+                <div class="card-meta">
+                  <span>6 min read</span>
+                  <a class="small-pill youtube-link" href="https://www.youtube.com/results?search_query=Barcelona+architecture+walking+tour" target="_blank" rel="noopener noreferrer" aria-label="Watch architecture tours on YouTube"><span class="dot"></span> Fresh</a>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <section class="page atlas-status-page" id="atlas-status-page" aria-labelledby="atlasStatusTitle">
+            <div class="atlas-status-header">
+              <div>
+                <div class="eyebrow">Data transparency</div>
+                <h1 id="atlasStatusTitle">Atlas status</h1>
+                <p>Details behind the figures shown on Discover.</p>
+              </div>
+              <button class="btn" type="button" data-show-discover>Back to Discover</button>
+            </div>
+
+            <dl class="atlas-status-list">
+              <div class="atlas-status-row">
+                <dt>Idea count</dt>
+                <dd>3.2k live ideas</dd>
+                <p>This is static demo text, not a count from a connected live idea feed.</p>
+              </div>
+              <div class="atlas-status-row">
+                <dt>Last update</dt>
+                <dd>Updated 12 min ago</dd>
+                <p>This label is static and is not generated from a data sync timestamp.</p>
+              </div>
+              <div class="atlas-status-row">
+                <dt>Verification</dt>
+                <dd>No live feed connected</dd>
+                <p>The figures cannot currently be confirmed against a live service.</p>
+              </div>
+            </dl>
+          </section>
+
+          <section class="page collections-page" id="collections-page">
+            <div class="collections-header">
+              <div>
+                <div class="eyebrow">Find your next idea</div>
+                <h1 id="collectionsTitle">Collections</h1>
+                <p id="collectionsDescription">Explore spaces, cities, architecture, art, and places worth discovering.</p>
+              </div>
+              <div class="collection-search-tools">
+                <input class="collection-search" id="collectionSearch" type="search" placeholder="Search places, food, art, or collections" aria-label="Search places, food, art, or collections" />
+                <div class="collection-search-actions" id="collectionSearchActions" hidden>
+                  <span class="search-query-label" id="searchQueryLabel"></span>
+                  <a class="btn" id="searchQueryGoogle" href="#" target="_blank" rel="noopener noreferrer">Search Google</a>
+                  <a class="btn" id="searchQueryYouTube" href="#" target="_blank" rel="noopener noreferrer">Search YouTube</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="collection-filters" id="collectionFilters" aria-label="Filter collections">
+              <button class="collection-filter active" type="button" data-collection-category="All">All</button>
+              <button class="collection-filter" type="button" data-collection-category="Spaces">Spaces</button>
+              <button class="collection-filter" type="button" data-collection-category="Cities">Cities</button>
+              <button class="collection-filter" type="button" data-collection-category="Architecture">Architecture</button>
+              <button class="collection-filter" type="button" data-collection-category="Food & culture">Food &amp; culture</button>
+              <button class="collection-filter" type="button" data-collection-category="Art">Art</button>
+              <button class="collection-filter" type="button" data-collection-category="Nature">Nature</button>
+              <button class="collection-filter" type="button" data-collection-category="Travel">Travel</button>
+            </div>
+
+            <p class="destination-results-heading" id="destinationResultsHeading" hidden></p>
+
+            <div class="collection-grid" id="collectionGrid" aria-live="polite"></div>
+            <p class="destination-results-heading" id="guideResultsHeading" hidden>World guide results</p>
+            <p class="guide-search-status" id="guideSearchStatus" role="status" aria-live="polite" hidden></p>
+            <div class="collection-grid" id="guideResults" aria-live="polite"></div>
+          </section>
+
+          <section class="page portfolio-page" id="portfolio-page">
+            <div class="portfolio-intro">
+              <div>
+                <div class="eyebrow">Creator space</div>
+                <h1 id="portfolioHeading">Your portfolio</h1>
+                <p id="portfolioBioPreview">Add your name and a short introduction, then feature collections that reflect what you love exploring.</p>
+              </div>
+              <form class="creator-form" id="creatorProfileForm">
+                <input id="creatorName" type="text" maxlength="60" placeholder="Your name" aria-label="Your portfolio name" />
+                <textarea id="creatorBio" maxlength="280" placeholder="A short introduction about you" aria-label="Your portfolio introduction"></textarea>
+                <button class="btn primary" type="submit">Save profile</button>
+              </form>
+            </div>
+
+            <section class="portfolio-upload" aria-labelledby="addProjectTitle">
+              <div>
+                <h2 id="addProjectTitle">Add your own project</h2>
+                <p>Upload your own image, add a title and optional place, and keep your work in this browser.</p>
+              </div>
+              <form class="portfolio-project-form" id="portfolioProjectForm">
+                <input id="projectTitleInput" type="text" maxlength="80" placeholder="Project title" aria-label="Project title" required />
+                <input id="projectLocationInput" type="text" maxlength="100" placeholder="Place (optional)" aria-label="Project location" />
+                <textarea id="projectDescriptionInput" maxlength="500" placeholder="What did you create?" aria-label="Project description"></textarea>
+                <input id="projectImageInput" type="file" accept="image/jpeg,image/png,image/webp" aria-label="Choose a project image" required />
+                <button class="btn primary" type="submit">Add project</button>
+                <span class="portfolio-form-status" id="portfolioFormStatus" role="status" aria-live="polite"></span>
+              </form>
+            </section>
+
+            <div class="portfolio-projects-header">
+              <div>
+                <h2>Featured projects</h2>
+                <p>Add projects from any collection using the portfolio button.</p>
+              </div>
+              <button class="btn" data-open-collections>Browse collections</button>
+            </div>
+            <div class="portfolio-projects" id="portfolioProjects" aria-live="polite"></div>
+          </section>
+
+          <section class="page map-page" id="map-page">
+            <div class="map-toolbar">
+              <div class="toolbar-left">
+                <button class="tool-btn" id="backToDiscover">←</button>
+                <div class="toolbar-title">World map</div>
+              </div>
+
+              <div class="map-search">
+                <input id="locationSearch" type="search" placeholder="Search a country, state, or continent" autocomplete="off" aria-label="Search countries, states, and continents" aria-controls="locationResults" aria-expanded="false" />
+                <div class="search-results" id="locationResults" role="listbox" aria-live="polite" hidden></div>
+              </div>
+              <button class="tool-btn" id="locateMe" type="button" aria-label="Use my current location" title="Use my current location">My location</button>
+
+              <div class="switcher" aria-label="Map view switcher">
+                <button class="switch-tab active" type="button" data-map-view="explore" aria-pressed="true">Explore</button>
+                <button class="switch-tab" type="button" data-map-view="regions" aria-pressed="false">Regions</button>
+              </div>
+            </div>
+
+            <div class="map-content">
+              <aside class="map-side">
+                <div class="tall-card">
+                  <p class="section-title">Find by flag colors</p>
+                  <div class="flag-color-options" id="flagColorOptions" role="group" aria-label="Choose flag colors">
+                    <button class="flag-color-option" type="button" data-flag-color="red" aria-label="Red" aria-pressed="false" title="Red"><span class="flag-color-swatch" style="--swatch-color: #e53935"></span><span>Red</span></button>
+                    <button class="flag-color-option" type="button" data-flag-color="orange" aria-label="Orange" aria-pressed="false" title="Orange"><span class="flag-color-swatch" style="--swatch-color: #f28c28"></span><span>Orange</span></button>
+                    <button class="flag-color-option" type="button" data-flag-color="yellow" aria-label="Yellow" aria-pressed="false" title="Yellow"><span class="flag-color-swatch" style="--swatch-color: #f5d328"></span><span>Yellow</span></button>
+                    <button class="flag-color-option" type="button" data-flag-color="green" aria-label="Green" aria-pressed="false" title="Green"><span class="flag-color-swatch" style="--swatch-color: #238b45"></span><span>Green</span></button>
+                    <button class="flag-color-option" type="button" data-flag-color="blue" aria-label="Blue" aria-pressed="false" title="Blue"><span class="flag-color-swatch" style="--swatch-color: #2467c9"></span><span>Blue</span></button>
+                    <button class="flag-color-option" type="button" data-flag-color="purple" aria-label="Purple" aria-pressed="false" title="Purple"><span class="flag-color-swatch" style="--swatch-color: #7735a8"></span><span>Purple</span></button>
+                    <button class="flag-color-option" type="button" data-flag-color="white" aria-label="White" aria-pressed="false" title="White"><span class="flag-color-swatch" style="--swatch-color: #fff"></span><span>White</span></button>
+                    <button class="flag-color-option" type="button" data-flag-color="black" aria-label="Black" aria-pressed="false" title="Black"><span class="flag-color-swatch" style="--swatch-color: #20242c"></span><span>Black</span></button>
+                  </div>
+                  <div class="region-country-list" id="flagColorResults" aria-label="Countries with selected flag colors" hidden></div>
+                  <p class="flag-color-status" id="flagColorStatus" role="status" aria-live="polite">Choose colors</p>
+                </div>
+
+                <div class="tall-card">
+                  <p class="section-title">Regions</p>
+                  <div class="chip-row">
+                    <button class="chip active" data-continent="Europe">Europe</button>
+                    <button class="chip" data-continent="Asia">Asia</button>
+                    <button class="chip" data-continent="North America">N. America</button>
+                    <button class="chip" data-continent="South America">S. America</button>
+                    <button class="chip" data-continent="Africa">Africa</button>
+                    <button class="chip" data-continent="Oceania">Oceania</button>
+                  </div>
+                  <div class="region-browser" id="regionBrowser" hidden>
+                    <p class="section-title" id="regionCountryTitle">Countries</p>
+                    <button class="btn" id="regionSubdivisionToggle" type="button" aria-pressed="false" hidden>Browse states / provinces</button>
+                    <div class="region-country-list" id="regionCountryList" aria-label="Countries in selected region"></div>
+                    <p class="region-country-status" id="regionCountryStatus" role="status" aria-live="polite" hidden></p>
+                  </div>
+                </div>
+
+                <div class="tall-card">
+                  <p class="section-title">Overview</p>
+                  <div class="mini-stat">
+                    <div class="box">
+                      <strong>94</strong>
+                      <span>spots</span>
+                    </div>
+                    <div class="box">
+                      <strong>28</strong>
+                      <span>cities</span>
+                    </div>
+                    <div class="box">
+                      <strong>11k</strong>
+                      <span>views</span>
+                    </div>
+                    <div class="box">
+                      <strong>7</strong>
+                      <span>trends</span>
+                    </div>
+                  </div>
+                </div>
+              </aside>
+
+              <div class="map-surface" id="mapSurface" aria-label="Interactive world globe. Drag to rotate and use the mouse wheel to zoom.">
+                <div class="world-grid"></div>
+                <canvas class="earth-canvas" id="mapEarth" aria-hidden="true"></canvas>
+                <div class="map-pin-label" id="mapPinLabel" hidden>
+                  <div class="map-pin-heading">
+                    <img class="map-pin-flag" id="mapPinFlag" alt="" hidden />
+                    <strong id="mapPinName"></strong>
+                  </div>
+                  <span id="mapPinSubtitle"></span>
+                </div>
+              </div>
+
+              <aside class="map-detail">
+                <div class="tall-card detail-card">
+                  <div class="title-row" aria-live="polite">
+                    <h4 id="selectedLocationName">World</h4>
+                    <span class="tag" id="selectedLocationType">All regions</span>
+                  </div>
+
+                  <div class="line-list">
+                    <div class="line-item"><span>Continent</span><strong id="selectedContinent">All</strong></div>
+                    <div class="line-item"><span>Coordinates</span><strong id="selectedCoordinates">Search a place</strong></div>
+                    <div class="line-item"><span>Place type</span><strong id="selectedPlaceType">Global</strong></div>
+                  </div>
+                </div>
+
+                <div class="tall-card">
+                  <p class="section-title">Highlights<span class="metric-caption">Share of collection opens on this device</span></p>
+                  <div class="line-list">
+                    <div class="line-item"><span class="dot-badge"></span><span>Urban design</span><strong data-highlight-share="urban-design">0%</strong></div>
+                    <div class="line-item"><span class="dot-badge"></span><span>Food culture</span><strong data-highlight-share="food-culture">0%</strong></div>
+                    <div class="line-item"><span class="dot-badge"></span><span>Architectural tours</span><strong data-highlight-share="architectural-tours">0%</strong></div>
+                  </div>
+                </div>
+              </aside>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <dialog class="feature-dialog" id="featureDialog" aria-labelledby="dialogTitle">
+      <div class="dialog-image-wrap">
+        <img id="dialogImage" src="" alt="" />
+        <button class="dialog-close" id="closeFeatureDialog" type="button" aria-label="Close collection">&times;</button>
+        <div class="gallery-controls" aria-label="Collection photo controls">
+          <div class="gallery-nav">
+            <button class="gallery-control" id="previousSlide" type="button" aria-label="Previous photo" title="Previous photo">‹</button>
+            <button class="gallery-control" id="toggleSlideshow" type="button" aria-label="Pause slideshow" title="Pause slideshow">Pause</button>
+            <button class="gallery-control" id="nextSlide" type="button" aria-label="Next photo" title="Next photo">›</button>
+          </div>
+          <span class="gallery-count" id="galleryCount" aria-live="polite"></span>
+        </div>
+      </div>
+      <div class="dialog-content">
+        <p class="dialog-category" id="dialogCategory"></p>
+        <h2 id="dialogTitle"></h2>
+        <p id="dialogDescription"></p>
+        <div class="dialog-location"><span class="meta-dot"></span><span id="dialogLocation"></span></div>
+        <div class="dialog-actions">
+          <button class="btn primary" id="showFeatureOnMap" type="button">Show on map</button>
+          <a class="btn" id="searchFeatureGoogle" href="#" target="_blank" rel="noopener noreferrer">Search Google</a>
+          <a class="btn" id="searchFeatureYouTube" href="#" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+          <button class="btn" id="saveFeature" type="button" aria-pressed="false">Save collection</button>
+        </div>
+      </div>
+    </dialog>
+
+    <dialog class="feature-dialog popular-dialog" id="popularDialog" aria-labelledby="popularDialogTitle">
+      <div class="popular-dialog-content">
+        <div class="popular-dialog-header">
+          <div>
+            <p class="dialog-category">Popular collections</p>
+            <h2 id="popularDialogTitle">Explore more ideas</h2>
+            <p id="popularDialogDescription">Choose any collection to open its photos and details.</p>
+          </div>
+          <button class="gallery-control" id="closePopularDialog" type="button" aria-label="Close collection choices">Close</button>
+        </div>
+        <div class="popular-options" id="popularOptions"></div>
+      </div>
+    </dialog>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.149.0/three.min.js"></script>
+    <script src="worldloom.js" defer></script>
+  </body>
+</html>
